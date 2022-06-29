@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"golog"
+
+	"github.com/davidgaspardev/golog"
 )
 
 func main() {
