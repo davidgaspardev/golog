@@ -36,7 +36,7 @@ func log(color, message string) {
 // Info log
 func Info(label, message string) {
 	now := getDatetimeNow()
-	log(MAG, fmt.Sprintf("[ %s | %s ] INFO - %s", now, label, message))
+	log(BLU, fmt.Sprintf("[ %s | %s ] INFO - %s", now, label, message))
 }
 
 // Service log
