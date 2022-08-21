@@ -67,3 +67,33 @@ func getDatetimeNow() string {
 	now := time.Now().Local()
 	return fmt.Sprintf("%d-%02d-%02d %02d:%02d:%02d", now.Year(), now.Month(), now.Day(), now.Hour(), now.Minute(), now.Second())
 }
+
+func NewLogTag(tag string) *_LogTag {
+	return &_LogTag{
+		tag: tag,
+	}
+}
+
+type _LogTag struct {
+	tag string
+}
+
+func (log *_LogTag) Info(method, message string) {
+	Info(log.tag, fmt.Sprintf("(%s) %s", method, message))
+}
+
+func (log *_LogTag) Service(method, message string) {
+	Service(log.tag, fmt.Sprintf("(%s) %s", method, message))
+}
+
+func (log *_LogTag) System(method, message string) {
+	System(log.tag, fmt.Sprintf("(%s) %s", method, message))
+}
+
+func (log *_LogTag) Error(method string, err error) {
+	Error(log.tag, fmt.Errorf("(%s) %s", method, err.Error()))
+}
+
+func (log *_LogTag) Warn(method, message string) {
+	Warn(log.tag, fmt.Sprintf("(%s) %s", method, message))
+}
