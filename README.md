@@ -2,7 +2,16 @@
 
 Color log system written in [Golang](https://go.dev).
 
-# Using
+## Log types
+
+- Info (`information`)
+- Io (`input/output`)
+- Service
+- System
+- Error
+- Warn (`warning`)
+
+## Using
 
 
 File: `server.go`
