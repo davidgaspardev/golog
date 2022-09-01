@@ -39,6 +39,12 @@ func Info(label, message string) {
 	log(BLU, fmt.Sprintf("[ %s | %s ] INFO - %s", now, label, message))
 }
 
+// I/O log
+func Io(label, message string) {
+	now := getDatetimeNow()
+	log(MAG, fmt.Sprintf("[ %s | %s ] I/O - %s", now, label, message))
+}
+
 // Service log
 func Service(label, message string) {
 	now := getDatetimeNow()
@@ -80,6 +86,10 @@ type _LogTag struct {
 
 func (log *_LogTag) Info(method, message string) {
 	Info(log.tag, fmt.Sprintf("(%s) %s", method, message))
+}
+
+func (log *_LogTag) Io(method, message string) {
+	Io(log.tag, fmt.Sprintf("(%s) %s", method, message))
 }
 
 func (log *_LogTag) Service(method, message string) {
