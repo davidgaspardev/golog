@@ -8,6 +8,7 @@ import (
 
 func main() {
 	golog.Info("Intelmes", "Intelmes is a manufacturing executation (MES) system to Intelbras")
+	golog.Io("Intelmes", "MODBUS request received")
 	golog.Service("Intelmes", "Machines modbus started")
 	golog.System("Intelmes", "Routes created")
 	golog.Error("Intelmes", fmt.Errorf("Failed to generate OEE"))
@@ -15,6 +16,7 @@ func main() {
 
 	log := golog.NewLogTag("Database")
 	log.Info("Create", "MES_resources table")
+	log.Io("ListeningPlc", "pulse received")
 	log.Service("Clean", "remove last data in MES_resources")
 	log.System("Run", "start setup script")
 	log.Error("GetItems", fmt.Errorf("columns not exists"))
